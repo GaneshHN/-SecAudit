@@ -1,0 +1,1547 @@
+[
+  {
+    "userId": "alex@company.com",
+    "repoUrl": "https://bmsit.ac.in/",
+    "totalIssues": 8,
+    "highCount": 1,
+    "mediumCount": 3,
+    "lowCount": 4,
+    "securityScore": 30,
+    "results": [
+      {
+        "issue": "Missing HSTS Header",
+        "severity": "High",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: strict-transport-security",
+        "description": "Strict-Transport-Security header is missing. Browsers may allow HTTP connections, exposing users to downgrade attacks.",
+        "fix": "Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
+      },
+      {
+        "issue": "Missing Content-Security-Policy",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: content-security-policy",
+        "description": "No Content-Security-Policy (CSP) header found. Without CSP, the site is more vulnerable to XSS attacks.",
+        "fix": "Add a Content-Security-Policy header. Start with: Content-Security-Policy: default-src 'self'"
+      },
+      {
+        "issue": "Missing X-Content-Type-Options",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: x-content-type-options",
+        "description": "X-Content-Type-Options header is missing. Browsers may MIME-sniff responses, potentially executing malicious content.",
+        "fix": "Add header: X-Content-Type-Options: nosniff"
+      },
+      {
+        "issue": "Missing X-Frame-Options (Clickjacking)",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: x-frame-options",
+        "description": "X-Frame-Options header is missing. The site can be embedded in iframes, enabling clickjacking attacks.",
+        "fix": "Add header: X-Frame-Options: DENY or SAMEORIGIN"
+      },
+      {
+        "issue": "Missing X-XSS-Protection",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: x-xss-protection",
+        "description": "X-XSS-Protection header is missing. While deprecated in modern browsers, it provides a layer for older ones.",
+        "fix": "Add header: X-XSS-Protection: 1; mode=block"
+      },
+      {
+        "issue": "Missing Referrer-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: referrer-policy",
+        "description": "No Referrer-Policy set. Full referrer URLs may leak sensitive data to third-party sites.",
+        "fix": "Add header: Referrer-Policy: strict-origin-when-cross-origin"
+      },
+      {
+        "issue": "Missing Permissions-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: permissions-policy",
+        "description": "No Permissions-Policy (formerly Feature-Policy) header. Browser features like camera, mic, geolocation are unrestricted.",
+        "fix": "Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+      },
+      {
+        "issue": "Server Version Disclosed",
+        "severity": "Low",
+        "category": "Information Disclosure",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Server: Apache/2.4.58 (Ubuntu)",
+        "description": "The Server header reveals version info (Apache/2.4.58 (Ubuntu)). Attackers can target known vulnerabilities for that version.",
+        "fix": "Remove or genericize the Server header. In nginx: server_tokens off; In Apache: ServerTokens Prod"
+      }
+    ],
+    "_id": "7446bc20-7cfb-4adc-a302-01df316bee4e",
+    "scanDate": "2026-04-29T16:38:01.773Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "http://localhost:5173/",
+    "totalIssues": 8,
+    "highCount": 2,
+    "mediumCount": 3,
+    "lowCount": 3,
+    "securityScore": 15,
+    "results": [
+      {
+        "issue": "Insecure HTTP Connection",
+        "severity": "High",
+        "category": "Transport Security",
+        "owasp": "A02:2021 - Cryptographic Failures",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "http://localhost:5173/",
+        "description": "The URL uses HTTP instead of HTTPS. All data transmitted is unencrypted and can be intercepted by attackers (man-in-the-middle attack).",
+        "fix": "Switch to HTTPS. Obtain a TLS certificate (free via Let's Encrypt) and enforce HTTPS with HSTS."
+      },
+      {
+        "issue": "Missing HSTS Header",
+        "severity": "High",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "Missing: strict-transport-security",
+        "description": "Strict-Transport-Security header is missing. Browsers may allow HTTP connections, exposing users to downgrade attacks.",
+        "fix": "Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
+      },
+      {
+        "issue": "Missing Content-Security-Policy",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "Missing: content-security-policy",
+        "description": "No Content-Security-Policy (CSP) header found. Without CSP, the site is more vulnerable to XSS attacks.",
+        "fix": "Add a Content-Security-Policy header. Start with: Content-Security-Policy: default-src 'self'"
+      },
+      {
+        "issue": "Missing X-Content-Type-Options",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "Missing: x-content-type-options",
+        "description": "X-Content-Type-Options header is missing. Browsers may MIME-sniff responses, potentially executing malicious content.",
+        "fix": "Add header: X-Content-Type-Options: nosniff"
+      },
+      {
+        "issue": "Missing X-Frame-Options (Clickjacking)",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "Missing: x-frame-options",
+        "description": "X-Frame-Options header is missing. The site can be embedded in iframes, enabling clickjacking attacks.",
+        "fix": "Add header: X-Frame-Options: DENY or SAMEORIGIN"
+      },
+      {
+        "issue": "Missing X-XSS-Protection",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "Missing: x-xss-protection",
+        "description": "X-XSS-Protection header is missing. While deprecated in modern browsers, it provides a layer for older ones.",
+        "fix": "Add header: X-XSS-Protection: 1; mode=block"
+      },
+      {
+        "issue": "Missing Referrer-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "Missing: referrer-policy",
+        "description": "No Referrer-Policy set. Full referrer URLs may leak sensitive data to third-party sites.",
+        "fix": "Add header: Referrer-Policy: strict-origin-when-cross-origin"
+      },
+      {
+        "issue": "Missing Permissions-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "Missing: permissions-policy",
+        "description": "No Permissions-Policy (formerly Feature-Policy) header. Browser features like camera, mic, geolocation are unrestricted.",
+        "fix": "Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+      }
+    ],
+    "_id": "e1718015-4e70-4f7a-98c3-34520d5a62e1",
+    "scanDate": "2026-04-30T05:42:19.816Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "http://localhost:5173/",
+    "totalIssues": 8,
+    "highCount": 2,
+    "mediumCount": 3,
+    "lowCount": 3,
+    "securityScore": 15,
+    "results": [
+      {
+        "issue": "Insecure HTTP Connection",
+        "severity": "High",
+        "category": "Transport Security",
+        "owasp": "A02:2021 - Cryptographic Failures",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "http://localhost:5173/",
+        "description": "The URL uses HTTP instead of HTTPS. All data transmitted is unencrypted and can be intercepted by attackers (man-in-the-middle attack).",
+        "fix": "Switch to HTTPS. Obtain a TLS certificate (free via Let's Encrypt) and enforce HTTPS with HSTS."
+      },
+      {
+        "issue": "Missing HSTS Header",
+        "severity": "High",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "Missing: strict-transport-security",
+        "description": "Strict-Transport-Security header is missing. Browsers may allow HTTP connections, exposing users to downgrade attacks.",
+        "fix": "Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
+      },
+      {
+        "issue": "Missing Content-Security-Policy",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "Missing: content-security-policy",
+        "description": "No Content-Security-Policy (CSP) header found. Without CSP, the site is more vulnerable to XSS attacks.",
+        "fix": "Add a Content-Security-Policy header. Start with: Content-Security-Policy: default-src 'self'"
+      },
+      {
+        "issue": "Missing X-Content-Type-Options",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "Missing: x-content-type-options",
+        "description": "X-Content-Type-Options header is missing. Browsers may MIME-sniff responses, potentially executing malicious content.",
+        "fix": "Add header: X-Content-Type-Options: nosniff"
+      },
+      {
+        "issue": "Missing X-Frame-Options (Clickjacking)",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "Missing: x-frame-options",
+        "description": "X-Frame-Options header is missing. The site can be embedded in iframes, enabling clickjacking attacks.",
+        "fix": "Add header: X-Frame-Options: DENY or SAMEORIGIN"
+      },
+      {
+        "issue": "Missing X-XSS-Protection",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "Missing: x-xss-protection",
+        "description": "X-XSS-Protection header is missing. While deprecated in modern browsers, it provides a layer for older ones.",
+        "fix": "Add header: X-XSS-Protection: 1; mode=block"
+      },
+      {
+        "issue": "Missing Referrer-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "Missing: referrer-policy",
+        "description": "No Referrer-Policy set. Full referrer URLs may leak sensitive data to third-party sites.",
+        "fix": "Add header: Referrer-Policy: strict-origin-when-cross-origin"
+      },
+      {
+        "issue": "Missing Permissions-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "localhost",
+        "line": 0,
+        "snippet": "Missing: permissions-policy",
+        "description": "No Permissions-Policy (formerly Feature-Policy) header. Browser features like camera, mic, geolocation are unrestricted.",
+        "fix": "Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+      }
+    ],
+    "_id": "d4da1284-785b-48cf-9f77-5fb26bcf6eb4",
+    "scanDate": "2026-04-30T05:47:38.200Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "https://bmsit.ac.in/",
+    "totalIssues": 8,
+    "highCount": 1,
+    "mediumCount": 3,
+    "lowCount": 4,
+    "securityScore": 30,
+    "results": [
+      {
+        "issue": "Missing HSTS Header",
+        "severity": "High",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: strict-transport-security",
+        "description": "Strict-Transport-Security header is missing. Browsers may allow HTTP connections, exposing users to downgrade attacks.",
+        "fix": "Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
+      },
+      {
+        "issue": "Missing Content-Security-Policy",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: content-security-policy",
+        "description": "No Content-Security-Policy (CSP) header found. Without CSP, the site is more vulnerable to XSS attacks.",
+        "fix": "Add a Content-Security-Policy header. Start with: Content-Security-Policy: default-src 'self'"
+      },
+      {
+        "issue": "Missing X-Content-Type-Options",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: x-content-type-options",
+        "description": "X-Content-Type-Options header is missing. Browsers may MIME-sniff responses, potentially executing malicious content.",
+        "fix": "Add header: X-Content-Type-Options: nosniff"
+      },
+      {
+        "issue": "Missing X-Frame-Options (Clickjacking)",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: x-frame-options",
+        "description": "X-Frame-Options header is missing. The site can be embedded in iframes, enabling clickjacking attacks.",
+        "fix": "Add header: X-Frame-Options: DENY or SAMEORIGIN"
+      },
+      {
+        "issue": "Missing X-XSS-Protection",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: x-xss-protection",
+        "description": "X-XSS-Protection header is missing. While deprecated in modern browsers, it provides a layer for older ones.",
+        "fix": "Add header: X-XSS-Protection: 1; mode=block"
+      },
+      {
+        "issue": "Missing Referrer-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: referrer-policy",
+        "description": "No Referrer-Policy set. Full referrer URLs may leak sensitive data to third-party sites.",
+        "fix": "Add header: Referrer-Policy: strict-origin-when-cross-origin"
+      },
+      {
+        "issue": "Missing Permissions-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: permissions-policy",
+        "description": "No Permissions-Policy (formerly Feature-Policy) header. Browser features like camera, mic, geolocation are unrestricted.",
+        "fix": "Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+      },
+      {
+        "issue": "Server Version Disclosed",
+        "severity": "Low",
+        "category": "Information Disclosure",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Server: Apache/2.4.58 (Ubuntu)",
+        "description": "The Server header reveals version info (Apache/2.4.58 (Ubuntu)). Attackers can target known vulnerabilities for that version.",
+        "fix": "Remove or genericize the Server header. In nginx: server_tokens off; In Apache: ServerTokens Prod"
+      }
+    ],
+    "_id": "29c22f22-f106-49ee-a8a9-2e6284988823",
+    "scanDate": "2026-04-30T06:03:18.897Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "https://support.google.com/flow/answer/16526234?hl=en&ref_topic=16908930&sjid=11024593584428555252-NC",
+    "totalIssues": 9,
+    "highCount": 0,
+    "mediumCount": 4,
+    "lowCount": 5,
+    "securityScore": 35,
+    "results": [
+      {
+        "issue": "Missing Content-Security-Policy",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "support.google.com",
+        "line": 0,
+        "snippet": "Missing: content-security-policy",
+        "description": "No Content-Security-Policy (CSP) header found. Without CSP, the site is more vulnerable to XSS attacks.",
+        "fix": "Add a Content-Security-Policy header. Start with: Content-Security-Policy: default-src 'self'"
+      },
+      {
+        "issue": "Cookie Missing Secure Flag",
+        "severity": "Medium",
+        "category": "Cookie Security",
+        "owasp": "A07:2021 - Identification Failures",
+        "file": "support.google.com",
+        "line": 0,
+        "snippet": "Cookie: NID",
+        "description": "Cookie 'NID' is missing the Secure flag. It will be sent over unencrypted HTTP connections.",
+        "fix": "Set the Secure flag on all cookies: Set-Cookie: name=value; Secure"
+      },
+      {
+        "issue": "Cookie Missing Secure Flag",
+        "severity": "Medium",
+        "category": "Cookie Security",
+        "owasp": "A07:2021 - Identification Failures",
+        "file": "support.google.com",
+        "line": 0,
+        "snippet": "Cookie: NID",
+        "description": "Cookie 'NID' is missing the Secure flag. It will be sent over unencrypted HTTP connections.",
+        "fix": "Set the Secure flag on all cookies: Set-Cookie: name=value; Secure"
+      },
+      {
+        "issue": "Cookie Missing Secure Flag",
+        "severity": "Medium",
+        "category": "Cookie Security",
+        "owasp": "A07:2021 - Identification Failures",
+        "file": "support.google.com",
+        "line": 0,
+        "snippet": "Cookie: NID",
+        "description": "Cookie 'NID' is missing the Secure flag. It will be sent over unencrypted HTTP connections.",
+        "fix": "Set the Secure flag on all cookies: Set-Cookie: name=value; Secure"
+      },
+      {
+        "issue": "Missing Referrer-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "support.google.com",
+        "line": 0,
+        "snippet": "Missing: referrer-policy",
+        "description": "No Referrer-Policy set. Full referrer URLs may leak sensitive data to third-party sites.",
+        "fix": "Add header: Referrer-Policy: strict-origin-when-cross-origin"
+      },
+      {
+        "issue": "Missing Permissions-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "support.google.com",
+        "line": 0,
+        "snippet": "Missing: permissions-policy",
+        "description": "No Permissions-Policy (formerly Feature-Policy) header. Browser features like camera, mic, geolocation are unrestricted.",
+        "fix": "Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+      },
+      {
+        "issue": "Cookie Missing SameSite Attribute",
+        "severity": "Low",
+        "category": "Cookie Security",
+        "owasp": "A01:2021 - Broken Access Control",
+        "file": "support.google.com",
+        "line": 0,
+        "snippet": "Cookie: NID",
+        "description": "Cookie 'NID' has no SameSite attribute. It may be sent in cross-site requests, enabling CSRF.",
+        "fix": "Add SameSite attribute: Set-Cookie: name=value; SameSite=Lax"
+      },
+      {
+        "issue": "Cookie Missing SameSite Attribute",
+        "severity": "Low",
+        "category": "Cookie Security",
+        "owasp": "A01:2021 - Broken Access Control",
+        "file": "support.google.com",
+        "line": 0,
+        "snippet": "Cookie: NID",
+        "description": "Cookie 'NID' has no SameSite attribute. It may be sent in cross-site requests, enabling CSRF.",
+        "fix": "Add SameSite attribute: Set-Cookie: name=value; SameSite=Lax"
+      },
+      {
+        "issue": "Cookie Missing SameSite Attribute",
+        "severity": "Low",
+        "category": "Cookie Security",
+        "owasp": "A01:2021 - Broken Access Control",
+        "file": "support.google.com",
+        "line": 0,
+        "snippet": "Cookie: NID",
+        "description": "Cookie 'NID' has no SameSite attribute. It may be sent in cross-site requests, enabling CSRF.",
+        "fix": "Add SameSite attribute: Set-Cookie: name=value; SameSite=Lax"
+      }
+    ],
+    "_id": "6ffa8cba-c956-4d16-92ac-19dec99882b4",
+    "scanDate": "2026-04-30T06:19:21.976Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": " https://bmsit.ac.in/",
+    "totalIssues": 0,
+    "highCount": 0,
+    "mediumCount": 0,
+    "lowCount": 0,
+    "securityScore": 100,
+    "results": [],
+    "_id": "b6c40c24-a198-4ecb-9748-367d9723e790",
+    "scanDate": "2026-04-30T06:19:51.770Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "https://www.youtube.com/watch?v=sTbXKdGtnBM",
+    "totalIssues": 2,
+    "highCount": 0,
+    "mediumCount": 0,
+    "lowCount": 2,
+    "securityScore": 90,
+    "results": [
+      {
+        "issue": "Missing Referrer-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "www.youtube.com",
+        "line": 0,
+        "snippet": "Missing: referrer-policy",
+        "description": "No Referrer-Policy set. Full referrer URLs may leak sensitive data to third-party sites.",
+        "fix": "Add header: Referrer-Policy: strict-origin-when-cross-origin"
+      },
+      {
+        "issue": "Cookie Missing SameSite Attribute",
+        "severity": "Low",
+        "category": "Cookie Security",
+        "owasp": "A01:2021 - Broken Access Control",
+        "file": "www.youtube.com",
+        "line": 0,
+        "snippet": "Cookie: GPS",
+        "description": "Cookie 'GPS' has no SameSite attribute. It may be sent in cross-site requests, enabling CSRF.",
+        "fix": "Add SameSite attribute: Set-Cookie: name=value; SameSite=Lax"
+      }
+    ],
+    "_id": "5236499a-0060-40cd-a330-c24bafc31325",
+    "scanDate": "2026-04-30T06:20:48.946Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "https://bmsit.ac.in/",
+    "totalIssues": 8,
+    "highCount": 1,
+    "mediumCount": 3,
+    "lowCount": 4,
+    "securityScore": 30,
+    "results": [
+      {
+        "issue": "Missing HSTS Header",
+        "severity": "High",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: strict-transport-security",
+        "description": "Strict-Transport-Security header is missing. Browsers may allow HTTP connections, exposing users to downgrade attacks.",
+        "fix": "Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
+      },
+      {
+        "issue": "Missing Content-Security-Policy",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: content-security-policy",
+        "description": "No Content-Security-Policy (CSP) header found. Without CSP, the site is more vulnerable to XSS attacks.",
+        "fix": "Add a Content-Security-Policy header. Start with: Content-Security-Policy: default-src 'self'"
+      },
+      {
+        "issue": "Missing X-Content-Type-Options",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: x-content-type-options",
+        "description": "X-Content-Type-Options header is missing. Browsers may MIME-sniff responses, potentially executing malicious content.",
+        "fix": "Add header: X-Content-Type-Options: nosniff"
+      },
+      {
+        "issue": "Missing X-Frame-Options (Clickjacking)",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: x-frame-options",
+        "description": "X-Frame-Options header is missing. The site can be embedded in iframes, enabling clickjacking attacks.",
+        "fix": "Add header: X-Frame-Options: DENY or SAMEORIGIN"
+      },
+      {
+        "issue": "Missing X-XSS-Protection",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: x-xss-protection",
+        "description": "X-XSS-Protection header is missing. While deprecated in modern browsers, it provides a layer for older ones.",
+        "fix": "Add header: X-XSS-Protection: 1; mode=block"
+      },
+      {
+        "issue": "Missing Referrer-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: referrer-policy",
+        "description": "No Referrer-Policy set. Full referrer URLs may leak sensitive data to third-party sites.",
+        "fix": "Add header: Referrer-Policy: strict-origin-when-cross-origin"
+      },
+      {
+        "issue": "Missing Permissions-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: permissions-policy",
+        "description": "No Permissions-Policy (formerly Feature-Policy) header. Browser features like camera, mic, geolocation are unrestricted.",
+        "fix": "Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+      },
+      {
+        "issue": "Server Version Disclosed",
+        "severity": "Low",
+        "category": "Information Disclosure",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Server: Apache/2.4.58 (Ubuntu)",
+        "description": "The Server header reveals version info (Apache/2.4.58 (Ubuntu)). Attackers can target known vulnerabilities for that version.",
+        "fix": "Remove or genericize the Server header. In nginx: server_tokens off; In Apache: ServerTokens Prod"
+      }
+    ],
+    "_id": "ad10786e-0a77-4209-99db-8280fe66795c",
+    "scanDate": "2026-04-30T08:24:43.589Z"
+  },
+  {
+    "userId": "24ug1bycs256@bmsit.in",
+    "repoUrl": "https://bmsit.ac.in/",
+    "totalIssues": 8,
+    "highCount": 1,
+    "mediumCount": 3,
+    "lowCount": 4,
+    "securityScore": 30,
+    "results": [
+      {
+        "issue": "Missing HSTS Header",
+        "severity": "High",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: strict-transport-security",
+        "description": "Strict-Transport-Security header is missing. Browsers may allow HTTP connections, exposing users to downgrade attacks.",
+        "fix": "Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
+      },
+      {
+        "issue": "Missing Content-Security-Policy",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: content-security-policy",
+        "description": "No Content-Security-Policy (CSP) header found. Without CSP, the site is more vulnerable to XSS attacks.",
+        "fix": "Add a Content-Security-Policy header. Start with: Content-Security-Policy: default-src 'self'"
+      },
+      {
+        "issue": "Missing X-Content-Type-Options",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: x-content-type-options",
+        "description": "X-Content-Type-Options header is missing. Browsers may MIME-sniff responses, potentially executing malicious content.",
+        "fix": "Add header: X-Content-Type-Options: nosniff"
+      },
+      {
+        "issue": "Missing X-Frame-Options (Clickjacking)",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: x-frame-options",
+        "description": "X-Frame-Options header is missing. The site can be embedded in iframes, enabling clickjacking attacks.",
+        "fix": "Add header: X-Frame-Options: DENY or SAMEORIGIN"
+      },
+      {
+        "issue": "Missing X-XSS-Protection",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: x-xss-protection",
+        "description": "X-XSS-Protection header is missing. While deprecated in modern browsers, it provides a layer for older ones.",
+        "fix": "Add header: X-XSS-Protection: 1; mode=block"
+      },
+      {
+        "issue": "Missing Referrer-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: referrer-policy",
+        "description": "No Referrer-Policy set. Full referrer URLs may leak sensitive data to third-party sites.",
+        "fix": "Add header: Referrer-Policy: strict-origin-when-cross-origin"
+      },
+      {
+        "issue": "Missing Permissions-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Missing: permissions-policy",
+        "description": "No Permissions-Policy (formerly Feature-Policy) header. Browser features like camera, mic, geolocation are unrestricted.",
+        "fix": "Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+      },
+      {
+        "issue": "Server Version Disclosed",
+        "severity": "Low",
+        "category": "Information Disclosure",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "bmsit.ac.in",
+        "line": 0,
+        "snippet": "Server: Apache/2.4.58 (Ubuntu)",
+        "description": "The Server header reveals version info (Apache/2.4.58 (Ubuntu)). Attackers can target known vulnerabilities for that version.",
+        "fix": "Remove or genericize the Server header. In nginx: server_tokens off; In Apache: ServerTokens Prod"
+      }
+    ],
+    "_id": "24ca1a25-95d7-4f80-87f5-ea13a2b56eff",
+    "scanDate": "2026-04-30T08:36:09.239Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "https://one.google.com/ai/activity?g1_landing_page=0",
+    "totalIssues": 3,
+    "highCount": 0,
+    "mediumCount": 0,
+    "lowCount": 3,
+    "securityScore": 85,
+    "results": [
+      {
+        "issue": "Missing Referrer-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "one.google.com",
+        "line": 0,
+        "snippet": "Missing: referrer-policy",
+        "description": "No Referrer-Policy set. Full referrer URLs may leak sensitive data to third-party sites.",
+        "fix": "Add header: Referrer-Policy: strict-origin-when-cross-origin"
+      },
+      {
+        "issue": "Cookie Missing SameSite Attribute",
+        "severity": "Low",
+        "category": "Cookie Security",
+        "owasp": "A01:2021 - Broken Access Control",
+        "file": "one.google.com",
+        "line": 0,
+        "snippet": "Cookie: __Host-GAPS",
+        "description": "Cookie '__Host-GAPS' has no SameSite attribute. It may be sent in cross-site requests, enabling CSRF.",
+        "fix": "Add SameSite attribute: Set-Cookie: name=value; SameSite=Lax"
+      },
+      {
+        "issue": "Excessive Redirects",
+        "severity": "Low",
+        "category": "Configuration",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "one.google.com",
+        "line": 0,
+        "snippet": "6 redirects followed",
+        "description": "The URL resulted in 6 redirects. This may indicate misconfiguration or redirect loops.",
+        "fix": "Minimize redirect chains. Use direct URLs and ensure canonical redirect configuration."
+      }
+    ],
+    "_id": "324c96bb-e84f-4303-bb8a-ba8228ccd1b8",
+    "scanDate": "2026-04-30T10:23:09.138Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "https://devnovate.co/event/vibewithindia-20/team-formation",
+    "totalIssues": 9,
+    "highCount": 1,
+    "mediumCount": 3,
+    "lowCount": 5,
+    "securityScore": 25,
+    "results": [
+      {
+        "issue": "Missing HSTS Header",
+        "severity": "High",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Missing: strict-transport-security",
+        "description": "Strict-Transport-Security header is missing. Browsers may allow HTTP connections, exposing users to downgrade attacks.",
+        "fix": "Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
+      },
+      {
+        "issue": "Missing Content-Security-Policy",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Missing: content-security-policy",
+        "description": "No Content-Security-Policy (CSP) header found. Without CSP, the site is more vulnerable to XSS attacks.",
+        "fix": "Add a Content-Security-Policy header. Start with: Content-Security-Policy: default-src 'self'"
+      },
+      {
+        "issue": "Missing X-Content-Type-Options",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Missing: x-content-type-options",
+        "description": "X-Content-Type-Options header is missing. Browsers may MIME-sniff responses, potentially executing malicious content.",
+        "fix": "Add header: X-Content-Type-Options: nosniff"
+      },
+      {
+        "issue": "Missing X-Frame-Options (Clickjacking)",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Missing: x-frame-options",
+        "description": "X-Frame-Options header is missing. The site can be embedded in iframes, enabling clickjacking attacks.",
+        "fix": "Add header: X-Frame-Options: DENY or SAMEORIGIN"
+      },
+      {
+        "issue": "Missing X-XSS-Protection",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Missing: x-xss-protection",
+        "description": "X-XSS-Protection header is missing. While deprecated in modern browsers, it provides a layer for older ones.",
+        "fix": "Add header: X-XSS-Protection: 1; mode=block"
+      },
+      {
+        "issue": "Missing Referrer-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Missing: referrer-policy",
+        "description": "No Referrer-Policy set. Full referrer URLs may leak sensitive data to third-party sites.",
+        "fix": "Add header: Referrer-Policy: strict-origin-when-cross-origin"
+      },
+      {
+        "issue": "Missing Permissions-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Missing: permissions-policy",
+        "description": "No Permissions-Policy (formerly Feature-Policy) header. Browser features like camera, mic, geolocation are unrestricted.",
+        "fix": "Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+      },
+      {
+        "issue": "Server Version Disclosed",
+        "severity": "Low",
+        "category": "Information Disclosure",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Server: nginx/1.22.1",
+        "description": "The Server header reveals version info (nginx/1.22.1). Attackers can target known vulnerabilities for that version.",
+        "fix": "Remove or genericize the Server header. In nginx: server_tokens off; In Apache: ServerTokens Prod"
+      },
+      {
+        "issue": "X-Powered-By Header Exposed",
+        "severity": "Low",
+        "category": "Information Disclosure",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "X-Powered-By: Express",
+        "description": "The X-Powered-By header reveals the technology stack (Express). This helps attackers target framework-specific vulnerabilities.",
+        "fix": "Remove the X-Powered-By header. In Express: app.disable('x-powered-by') or use helmet."
+      }
+    ],
+    "_id": "c2c252d0-5551-4bbb-b070-bc07083dca79",
+    "scanDate": "2026-05-06T13:17:43.881Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "https://devnovate.co/event/hackwithbanglore-30/team-formation",
+    "totalIssues": 9,
+    "highCount": 1,
+    "mediumCount": 3,
+    "lowCount": 5,
+    "securityScore": 25,
+    "results": [
+      {
+        "issue": "Missing HSTS Header",
+        "severity": "High",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Missing: strict-transport-security",
+        "description": "Strict-Transport-Security header is missing. Browsers may allow HTTP connections, exposing users to downgrade attacks.",
+        "fix": "Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
+      },
+      {
+        "issue": "Missing Content-Security-Policy",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Missing: content-security-policy",
+        "description": "No Content-Security-Policy (CSP) header found. Without CSP, the site is more vulnerable to XSS attacks.",
+        "fix": "Add a Content-Security-Policy header. Start with: Content-Security-Policy: default-src 'self'"
+      },
+      {
+        "issue": "Missing X-Content-Type-Options",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Missing: x-content-type-options",
+        "description": "X-Content-Type-Options header is missing. Browsers may MIME-sniff responses, potentially executing malicious content.",
+        "fix": "Add header: X-Content-Type-Options: nosniff"
+      },
+      {
+        "issue": "Missing X-Frame-Options (Clickjacking)",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Missing: x-frame-options",
+        "description": "X-Frame-Options header is missing. The site can be embedded in iframes, enabling clickjacking attacks.",
+        "fix": "Add header: X-Frame-Options: DENY or SAMEORIGIN"
+      },
+      {
+        "issue": "Missing X-XSS-Protection",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Missing: x-xss-protection",
+        "description": "X-XSS-Protection header is missing. While deprecated in modern browsers, it provides a layer for older ones.",
+        "fix": "Add header: X-XSS-Protection: 1; mode=block"
+      },
+      {
+        "issue": "Missing Referrer-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Missing: referrer-policy",
+        "description": "No Referrer-Policy set. Full referrer URLs may leak sensitive data to third-party sites.",
+        "fix": "Add header: Referrer-Policy: strict-origin-when-cross-origin"
+      },
+      {
+        "issue": "Missing Permissions-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Missing: permissions-policy",
+        "description": "No Permissions-Policy (formerly Feature-Policy) header. Browser features like camera, mic, geolocation are unrestricted.",
+        "fix": "Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+      },
+      {
+        "issue": "Server Version Disclosed",
+        "severity": "Low",
+        "category": "Information Disclosure",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "Server: nginx/1.22.1",
+        "description": "The Server header reveals version info (nginx/1.22.1). Attackers can target known vulnerabilities for that version.",
+        "fix": "Remove or genericize the Server header. In nginx: server_tokens off; In Apache: ServerTokens Prod"
+      },
+      {
+        "issue": "X-Powered-By Header Exposed",
+        "severity": "Low",
+        "category": "Information Disclosure",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "devnovate.co",
+        "line": 0,
+        "snippet": "X-Powered-By: Express",
+        "description": "The X-Powered-By header reveals the technology stack (Express). This helps attackers target framework-specific vulnerabilities.",
+        "fix": "Remove the X-Powered-By header. In Express: app.disable('x-powered-by') or use helmet."
+      }
+    ],
+    "_id": "aee67326-970c-4851-b2c2-cb2dd950c0bf",
+    "scanDate": "2026-05-06T13:18:05.025Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "Inception-Project-main.zip",
+    "totalIssues": 0,
+    "highCount": 0,
+    "mediumCount": 0,
+    "lowCount": 0,
+    "securityScore": 100,
+    "results": [],
+    "_id": "616bebfd-938e-49e9-8b21-2bf4944394a2",
+    "scanDate": "2026-05-06T14:44:53.074Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "https://avinya.sjcit.ac.in/",
+    "totalIssues": 2,
+    "highCount": 0,
+    "mediumCount": 0,
+    "lowCount": 2,
+    "securityScore": 90,
+    "results": [
+      {
+        "issue": "Missing Permissions-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "avinya.sjcit.ac.in",
+        "line": 0,
+        "snippet": "Missing: permissions-policy",
+        "description": "No Permissions-Policy (formerly Feature-Policy) header. Browser features like camera, mic, geolocation are unrestricted.",
+        "fix": "Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+      },
+      {
+        "issue": "Cookie Missing SameSite Attribute",
+        "severity": "Low",
+        "category": "Cookie Security",
+        "owasp": "A01:2021 - Broken Access Control",
+        "file": "avinya.sjcit.ac.in",
+        "line": 0,
+        "snippet": "Cookie: __cf_bm",
+        "description": "Cookie '__cf_bm' has no SameSite attribute. It may be sent in cross-site requests, enabling CSRF.",
+        "fix": "Add SameSite attribute: Set-Cookie: name=value; SameSite=Lax"
+      }
+    ],
+    "_id": "7c21fd1d-a4fb-4982-954b-45c994fb3e62",
+    "scanDate": "2026-05-06T14:45:12.831Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "https://www.youtube.com/watch?v=gk6Jri1kGTs&list=RDoI8JTyg2BMw&index=32",
+    "totalIssues": 2,
+    "highCount": 0,
+    "mediumCount": 0,
+    "lowCount": 2,
+    "securityScore": 90,
+    "results": [
+      {
+        "issue": "Missing Referrer-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "www.youtube.com",
+        "line": 0,
+        "snippet": "Missing: referrer-policy",
+        "description": "No Referrer-Policy set. Full referrer URLs may leak sensitive data to third-party sites.",
+        "fix": "Add header: Referrer-Policy: strict-origin-when-cross-origin"
+      },
+      {
+        "issue": "Cookie Missing SameSite Attribute",
+        "severity": "Low",
+        "category": "Cookie Security",
+        "owasp": "A01:2021 - Broken Access Control",
+        "file": "www.youtube.com",
+        "line": 0,
+        "snippet": "Cookie: GPS",
+        "description": "Cookie 'GPS' has no SameSite attribute. It may be sent in cross-site requests, enabling CSRF.",
+        "fix": "Add SameSite attribute: Set-Cookie: name=value; SameSite=Lax"
+      }
+    ],
+    "_id": "ea7046e5-1a83-4209-b0f2-e037707a7c8b",
+    "scanDate": "2026-05-10T18:03:08.150Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdtIXgS5s1XzUvu8zEmXIA0Zt8EWtU-4UjmwyUamEKj4LKQOw/formResponse",
+    "totalIssues": 5,
+    "highCount": 1,
+    "mediumCount": 2,
+    "lowCount": 2,
+    "securityScore": 50,
+    "results": [
+      {
+        "issue": "Missing HSTS Header",
+        "severity": "High",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Missing: strict-transport-security",
+        "description": "Strict-Transport-Security header is missing. Browsers may allow HTTP connections, exposing users to downgrade attacks.",
+        "fix": "Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
+      },
+      {
+        "issue": "Missing X-Frame-Options (Clickjacking)",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Missing: x-frame-options",
+        "description": "X-Frame-Options header is missing. The site can be embedded in iframes, enabling clickjacking attacks.",
+        "fix": "Add header: X-Frame-Options: DENY or SAMEORIGIN"
+      },
+      {
+        "issue": "Cookie Missing Secure Flag",
+        "severity": "Medium",
+        "category": "Cookie Security",
+        "owasp": "A07:2021 - Identification Failures",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Cookie: NID",
+        "description": "Cookie 'NID' is missing the Secure flag. It will be sent over unencrypted HTTP connections.",
+        "fix": "Set the Secure flag on all cookies: Set-Cookie: name=value; Secure"
+      },
+      {
+        "issue": "Missing Permissions-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Missing: permissions-policy",
+        "description": "No Permissions-Policy (formerly Feature-Policy) header. Browser features like camera, mic, geolocation are unrestricted.",
+        "fix": "Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+      },
+      {
+        "issue": "Cookie Missing SameSite Attribute",
+        "severity": "Low",
+        "category": "Cookie Security",
+        "owasp": "A01:2021 - Broken Access Control",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Cookie: NID",
+        "description": "Cookie 'NID' has no SameSite attribute. It may be sent in cross-site requests, enabling CSRF.",
+        "fix": "Add SameSite attribute: Set-Cookie: name=value; SameSite=Lax"
+      }
+    ],
+    "_id": "78718a97-3163-41b4-8ea3-899bc8ee2d42",
+    "scanDate": "2026-05-11T16:46:10.670Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdtIXgS5s1XzUvu8zEmXIA0Zt8EWtU-4UjmwyUamEKj4LKQOw/viewform",
+    "totalIssues": 5,
+    "highCount": 1,
+    "mediumCount": 2,
+    "lowCount": 2,
+    "securityScore": 50,
+    "results": [
+      {
+        "issue": "Missing HSTS Header",
+        "severity": "High",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Missing: strict-transport-security",
+        "description": "Strict-Transport-Security header is missing. Browsers may allow HTTP connections, exposing users to downgrade attacks.",
+        "fix": "Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
+      },
+      {
+        "issue": "Missing X-Frame-Options (Clickjacking)",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Missing: x-frame-options",
+        "description": "X-Frame-Options header is missing. The site can be embedded in iframes, enabling clickjacking attacks.",
+        "fix": "Add header: X-Frame-Options: DENY or SAMEORIGIN"
+      },
+      {
+        "issue": "Cookie Missing Secure Flag",
+        "severity": "Medium",
+        "category": "Cookie Security",
+        "owasp": "A07:2021 - Identification Failures",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Cookie: NID",
+        "description": "Cookie 'NID' is missing the Secure flag. It will be sent over unencrypted HTTP connections.",
+        "fix": "Set the Secure flag on all cookies: Set-Cookie: name=value; Secure"
+      },
+      {
+        "issue": "Missing Permissions-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Missing: permissions-policy",
+        "description": "No Permissions-Policy (formerly Feature-Policy) header. Browser features like camera, mic, geolocation are unrestricted.",
+        "fix": "Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+      },
+      {
+        "issue": "Cookie Missing SameSite Attribute",
+        "severity": "Low",
+        "category": "Cookie Security",
+        "owasp": "A01:2021 - Broken Access Control",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Cookie: NID",
+        "description": "Cookie 'NID' has no SameSite attribute. It may be sent in cross-site requests, enabling CSRF.",
+        "fix": "Add SameSite attribute: Set-Cookie: name=value; SameSite=Lax"
+      }
+    ],
+    "_id": "770a759c-3891-46a6-b695-eeaa8d1d3c77",
+    "scanDate": "2026-05-13T11:56:47.882Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdtIXgS5s1XzUvu8zEmXIA0Zt8EWtU-4UjmwyUamEKj4LKQOw/viewform",
+    "totalIssues": 5,
+    "highCount": 1,
+    "mediumCount": 2,
+    "lowCount": 2,
+    "securityScore": 50,
+    "results": [
+      {
+        "issue": "Missing HSTS Header",
+        "severity": "High",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Missing: strict-transport-security",
+        "description": "Strict-Transport-Security header is missing. Browsers may allow HTTP connections, exposing users to downgrade attacks.",
+        "fix": "Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
+      },
+      {
+        "issue": "Missing X-Frame-Options (Clickjacking)",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Missing: x-frame-options",
+        "description": "X-Frame-Options header is missing. The site can be embedded in iframes, enabling clickjacking attacks.",
+        "fix": "Add header: X-Frame-Options: DENY or SAMEORIGIN"
+      },
+      {
+        "issue": "Cookie Missing Secure Flag",
+        "severity": "Medium",
+        "category": "Cookie Security",
+        "owasp": "A07:2021 - Identification Failures",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Cookie: NID",
+        "description": "Cookie 'NID' is missing the Secure flag. It will be sent over unencrypted HTTP connections.",
+        "fix": "Set the Secure flag on all cookies: Set-Cookie: name=value; Secure"
+      },
+      {
+        "issue": "Missing Permissions-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Missing: permissions-policy",
+        "description": "No Permissions-Policy (formerly Feature-Policy) header. Browser features like camera, mic, geolocation are unrestricted.",
+        "fix": "Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+      },
+      {
+        "issue": "Cookie Missing SameSite Attribute",
+        "severity": "Low",
+        "category": "Cookie Security",
+        "owasp": "A01:2021 - Broken Access Control",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Cookie: NID",
+        "description": "Cookie 'NID' has no SameSite attribute. It may be sent in cross-site requests, enabling CSRF.",
+        "fix": "Add SameSite attribute: Set-Cookie: name=value; SameSite=Lax"
+      }
+    ],
+    "_id": "6d620fed-da04-488a-8293-e71137953e43",
+    "scanDate": "2026-05-13T11:57:00.531Z"
+  },
+  {
+    "userId": "arya@gmail.com",
+    "repoUrl": "https://docs.google.com/forms/d/e/1FAIpQLSf6x7B_xYAVEYW_0ttoFqr4Sd9t2IQcHPPjTmU9iTYswuvEIw/viewform",
+    "totalIssues": 5,
+    "highCount": 1,
+    "mediumCount": 2,
+    "lowCount": 2,
+    "securityScore": 50,
+    "results": [
+      {
+        "issue": "Missing HSTS Header",
+        "severity": "High",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Missing: strict-transport-security",
+        "description": "Strict-Transport-Security header is missing. Browsers may allow HTTP connections, exposing users to downgrade attacks.",
+        "fix": "Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
+      },
+      {
+        "issue": "Missing X-Frame-Options (Clickjacking)",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Missing: x-frame-options",
+        "description": "X-Frame-Options header is missing. The site can be embedded in iframes, enabling clickjacking attacks.",
+        "fix": "Add header: X-Frame-Options: DENY or SAMEORIGIN"
+      },
+      {
+        "issue": "Cookie Missing Secure Flag",
+        "severity": "Medium",
+        "category": "Cookie Security",
+        "owasp": "A07:2021 - Identification Failures",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Cookie: NID",
+        "description": "Cookie 'NID' is missing the Secure flag. It will be sent over unencrypted HTTP connections.",
+        "fix": "Set the Secure flag on all cookies: Set-Cookie: name=value; Secure"
+      },
+      {
+        "issue": "Missing Permissions-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Missing: permissions-policy",
+        "description": "No Permissions-Policy (formerly Feature-Policy) header. Browser features like camera, mic, geolocation are unrestricted.",
+        "fix": "Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+      },
+      {
+        "issue": "Cookie Missing SameSite Attribute",
+        "severity": "Low",
+        "category": "Cookie Security",
+        "owasp": "A01:2021 - Broken Access Control",
+        "file": "docs.google.com",
+        "line": 0,
+        "snippet": "Cookie: NID",
+        "description": "Cookie 'NID' has no SameSite attribute. It may be sent in cross-site requests, enabling CSRF.",
+        "fix": "Add SameSite attribute: Set-Cookie: name=value; SameSite=Lax"
+      }
+    ],
+    "_id": "75ea3771-4c50-450d-b621-5740bdcf0a6f",
+    "scanDate": "2026-05-17T13:58:43.995Z"
+  },
+  {
+    "userId": "ghn@gmail.com",
+    "repoUrl": "https://www.flipkart.com/?affid=affsiteplug&affExtParam1=60827&affExtParam2=12c12d856eb2b74915a9a318229ffc1f",
+    "totalIssues": 13,
+    "highCount": 1,
+    "mediumCount": 6,
+    "lowCount": 6,
+    "securityScore": 0,
+    "results": [
+      {
+        "issue": "Missing HSTS Header",
+        "severity": "High",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "www.flipkart.com",
+        "line": 0,
+        "snippet": "Missing: strict-transport-security",
+        "description": "Strict-Transport-Security header is missing. Browsers may allow HTTP connections, exposing users to downgrade attacks.",
+        "fix": "Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
+      },
+      {
+        "issue": "Missing X-Content-Type-Options",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "www.flipkart.com",
+        "line": 0,
+        "snippet": "Missing: x-content-type-options",
+        "description": "X-Content-Type-Options header is missing. Browsers may MIME-sniff responses, potentially executing malicious content.",
+        "fix": "Add header: X-Content-Type-Options: nosniff"
+      },
+      {
+        "issue": "Missing X-Frame-Options (Clickjacking)",
+        "severity": "Medium",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "www.flipkart.com",
+        "line": 0,
+        "snippet": "Missing: x-frame-options",
+        "description": "X-Frame-Options header is missing. The site can be embedded in iframes, enabling clickjacking attacks.",
+        "fix": "Add header: X-Frame-Options: DENY or SAMEORIGIN"
+      },
+      {
+        "issue": "Cookie Missing HttpOnly Flag",
+        "severity": "Medium",
+        "category": "Cookie Security",
+        "owasp": "A07:2021 - Identification Failures",
+        "file": "www.flipkart.com",
+        "line": 0,
+        "snippet": "Cookie: T",
+        "description": "Cookie 'T' is missing the HttpOnly flag. JavaScript can access it, making it vulnerable to XSS theft.",
+        "fix": "Set the HttpOnly flag on session cookies: Set-Cookie: name=value; HttpOnly"
+      },
+      {
+        "issue": "Cookie Missing Secure Flag",
+        "severity": "Medium",
+        "category": "Cookie Security",
+        "owasp": "A07:2021 - Identification Failures",
+        "file": "www.flipkart.com",
+        "line": 0,
+        "snippet": "Cookie: SN",
+        "description": "Cookie 'SN' is missing the Secure flag. It will be sent over unencrypted HTTP connections.",
+        "fix": "Set the Secure flag on all cookies: Set-Cookie: name=value; Secure"
+      },
+      {
+        "issue": "Cookie Missing Secure Flag",
+        "severity": "Medium",
+        "category": "Cookie Security",
+        "owasp": "A07:2021 - Identification Failures",
+        "file": "www.flipkart.com",
+        "line": 0,
+        "snippet": "Cookie: at",
+        "description": "Cookie 'at' is missing the Secure flag. It will be sent over unencrypted HTTP connections.",
+        "fix": "Set the Secure flag on all cookies: Set-Cookie: name=value; Secure"
+      },
+      {
+        "issue": "Cookie Missing Secure Flag",
+        "severity": "Medium",
+        "category": "Cookie Security",
+        "owasp": "A07:2021 - Identification Failures",
+        "file": "www.flipkart.com",
+        "line": 0,
+        "snippet": "Cookie: K-ACTION",
+        "description": "Cookie 'K-ACTION' is missing the Secure flag. It will be sent over unencrypted HTTP connections.",
+        "fix": "Set the Secure flag on all cookies: Set-Cookie: name=value; Secure"
+      },
+      {
+        "issue": "Missing X-XSS-Protection",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "www.flipkart.com",
+        "line": 0,
+        "snippet": "Missing: x-xss-protection",
+        "description": "X-XSS-Protection header is missing. While deprecated in modern browsers, it provides a layer for older ones.",
+        "fix": "Add header: X-XSS-Protection: 1; mode=block"
+      },
+      {
+        "issue": "Missing Referrer-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "www.flipkart.com",
+        "line": 0,
+        "snippet": "Missing: referrer-policy",
+        "description": "No Referrer-Policy set. Full referrer URLs may leak sensitive data to third-party sites.",
+        "fix": "Add header: Referrer-Policy: strict-origin-when-cross-origin"
+      },
+      {
+        "issue": "Missing Permissions-Policy",
+        "severity": "Low",
+        "category": "Security Headers",
+        "owasp": "A05:2021 - Security Misconfiguration",
+        "file": "www.flipkart.com",
+        "line": 0,
+        "snippet": "Missing: permissions-policy",
+        "description": "No Permissions-Policy (formerly Feature-Policy) header. Browser features like camera, mic, geolocation are unrestricted.",
+        "fix": "Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+      },
+      {
+        "issue": "Cookie Missing SameSite Attribute",
+        "severity": "Low",
+        "category": "Cookie Security",
+        "owasp": "A01:2021 - Broken Access Control",
+        "file": "www.flipkart.com",
+        "line": 0,
+        "snippet": "Cookie: SN",
+        "description": "Cookie 'SN' has no SameSite attribute. It may be sent in cross-site requests, enabling CSRF.",
+        "fix": "Add SameSite attribute: Set-Cookie: name=value; SameSite=Lax"
+      },
+      {
+        "issue": "Cookie Missing SameSite Attribute",
+        "severity": "Low",
+        "category": "Cookie Security",
+        "owasp": "A01:2021 - Broken Access Control",
+        "file": "www.flipkart.com",
+        "line": 0,
+        "snippet": "Cookie: at",
+        "description": "Cookie 'at' has no SameSite attribute. It may be sent in cross-site requests, enabling CSRF.",
+        "fix": "Add SameSite attribute: Set-Cookie: name=value; SameSite=Lax"
+      },
+      {
+        "issue": "Cookie Missing SameSite Attribute",
+        "severity": "Low",
+        "category": "Cookie Security",
+        "owasp": "A01:2021 - Broken Access Control",
+        "file": "www.flipkart.com",
+        "line": 0,
+        "snippet": "Cookie: K-ACTION",
+        "description": "Cookie 'K-ACTION' has no SameSite attribute. It may be sent in cross-site requests, enabling CSRF.",
+        "fix": "Add SameSite attribute: Set-Cookie: name=value; SameSite=Lax"
+      }
+    ],
+    "_id": "10bc5b0b-36ad-4e16-9e38-534ce905f199",
+    "scanDate": "2026-05-23T17:38:01.328Z"
+  }
+]

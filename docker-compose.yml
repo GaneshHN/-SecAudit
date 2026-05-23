@@ -1,0 +1,105 @@
+# SecAudit AI Vulnerability Scanner — Docker Compose
+version: "3.9"
+
+services:
+  # ── FastAPI Backend ──────────────────────────────────
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - ENV=production
+      - DATABASE_URL=postgresql+asyncpg://secaudit:secaudit_pass@postgres:5432/secaudit
+      - MONGO_URI=mongodb://mongo:27017
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/1
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      mongo:
+        condition: service_started
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - secaudit
+
+  # ── PostgreSQL ───────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: secaudit
+      POSTGRES_PASSWORD: secaudit_pass
+      POSTGRES_DB: secaudit
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U secaudit"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - secaudit
+
+  # ── MongoDB ──────────────────────────────────────────
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+    restart: unless-stopped
+    networks:
+      - secaudit
+
+  # ── Redis ────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - secaudit
+
+  # ── Celery Worker ────────────────────────────────────
+  celery:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: celery -A app.celery_worker worker --loglevel=info
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://secaudit:secaudit_pass@postgres:5432/secaudit
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/1
+      - CELERY_RESULT_BACKEND=redis://redis:6379/2
+    depends_on:
+      - redis
+      - postgres
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - secaudit
+
+volumes:
+  pgdata:
+  mongodata:
+  redisdata:
+
+networks:
+  secaudit:
+    driver: bridge

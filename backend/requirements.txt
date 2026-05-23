@@ -1,0 +1,39 @@
+# SecAudit AI Vulnerability Scanner — Python Dependencies
+# Core
+fastapi==0.115.0
+uvicorn[standard]==0.30.0
+pydantic==2.9.0
+pydantic-settings==2.5.0
+
+# Database
+sqlalchemy[asyncio]==2.0.35
+asyncpg==0.29.0
+aiosqlite==0.20.0
+motor==3.6.0
+
+# Redis
+redis[hiredis]==5.1.0
+
+# Auth
+PyJWT==2.9.0
+bcrypt==4.2.0
+cryptography==43.0.0
+
+# HTTP
+httpx==0.27.0
+
+# Reports
+reportlab==4.2.0
+
+# QR Code (MFA)
+qrcode[pil]==7.4.0
+
+# Utilities
+python-multipart==0.0.9
+python-dotenv==1.0.1
+
+# Optional: Cloud SDKs (uncomment as needed)
+# boto3>=1.35.0
+# azure-identity>=1.18.0
+# azure-mgmt-storage>=21.0.0
+# google-cloud-storage>=2.18.0

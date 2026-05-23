@@ -1,0 +1,65 @@
+{
+  "scanResult": {
+    "repository": "frontend-core-app",
+    "timestamp": "2026-04-29T10:30:00Z",
+    "summary": {
+      "totalIssues": 8,
+      "critical": 2,
+      "high": 3,
+      "medium": 2,
+      "low": 1
+    },
+    "vulnerabilities": [
+      {
+        "id": "VULN-001",
+        "title": "Exposed AWS Access Key",
+        "severity": "Critical",
+        "category": "Secret Leak",
+        "file": "config/aws.js",
+        "line": 12,
+        "description": "A hardcoded AWS Access Key ID was detected. This allows unauthorized access to AWS resources.",
+        "remediation": "Remove the hardcoded key and use environment variables (e.g., process.env.AWS_ACCESS_KEY_ID). Rotate the key immediately in the AWS console."
+      },
+      {
+        "id": "VULN-002",
+        "title": "Remote Code Execution in 'lodash'",
+        "severity": "Critical",
+        "category": "Dependency",
+        "file": "package.json",
+        "line": 45,
+        "description": "The installed version of lodash (4.17.15) is vulnerable to Prototype Pollution which can lead to Remote Code Execution.",
+        "remediation": "Update lodash to version 4.17.21 or higher."
+      },
+      {
+        "id": "VULN-003",
+        "title": "SQL Injection vulnerability",
+        "severity": "High",
+        "category": "Code Quality",
+        "file": "src/controllers/userController.js",
+        "line": 88,
+        "description": "User input is concatenated directly into a SQL query without parameterization.",
+        "remediation": "Use prepared statements or parameterized queries provided by your ORM/database driver."
+      },
+      {
+        "id": "VULN-004",
+        "title": "Missing Security Headers",
+        "severity": "Medium",
+        "category": "Configuration",
+        "file": "server.js",
+        "line": 22,
+        "description": "The application does not enforce Strict-Transport-Security (HSTS) or X-Content-Type-Options.",
+        "remediation": "Implement a security middleware like 'helmet' in Express to automatically set recommended HTTP headers."
+      },
+      {
+        "id": "VULN-005",
+        "title": "Insecure JWT Secret",
+        "severity": "High",
+        "category": "Authentication",
+        "file": "src/utils/auth.js",
+        "line": 15,
+        "description": "The JWT signing secret is too short or predictable (e.g., 'secret123').",
+        "remediation": "Generate a strong, random 256-bit key and store it securely in environment variables."
+      }
+    ]
+  }
+}
